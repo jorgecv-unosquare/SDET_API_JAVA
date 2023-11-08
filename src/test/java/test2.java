@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class test3 {
+public class test2 {
     protected final Logger logger = LogManager.getLogger(getClass());
 
     @Test
@@ -38,7 +38,7 @@ public class test3 {
     public void first_Gherkin() {
         given()
                 .when()
-                .get("https://reqres.in/api/users/2")
+                .get("https://reqres.in/api/unknown/2")
                 .then()
                 .assertThat().statusCode(200)
                 .assertThat().contentType(ContentType.JSON)
@@ -46,7 +46,7 @@ public class test3 {
                 .body("data.id", equalTo(2))
                 .body("data.name", equalTo("fuchsia rose"))
                 .body("data.year", equalTo(2001))
-                .body("data.year", equalTo("#C74375"))
+                .body("data.color", equalTo("#C74375"))
                 .body("data.pantone_value", equalTo("17-2031"))
                 .body("support.url", equalTo("https://reqres.in/#support-heading"))
                 .body("support.text", equalTo("To keep ReqRes free, contributions towards server costs are appreciated!"));
